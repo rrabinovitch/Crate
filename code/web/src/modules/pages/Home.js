@@ -1,3 +1,4 @@
+// This file seems to define the contents of the page that has its routes defined by this file: web/src/setup/routes/home.js
 // Imports
 import React from 'react'
 import PropTypes from 'prop-types'

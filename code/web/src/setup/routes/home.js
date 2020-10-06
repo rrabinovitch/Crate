@@ -1,3 +1,7 @@
+// every route seems to have its own file rather than a config/routes file in ruby
+// this file defines all the routes you could visit from the home page
+
+
 // App Imports
 import Home from '../../modules/pages/Home'
 import Men from '../../modules/pages/Men'

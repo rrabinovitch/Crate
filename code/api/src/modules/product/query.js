@@ -1,3 +1,5 @@
+// this file seems to list the available queries we can make of the api
+
 // Imports
 import { GraphQLString, GraphQLInt, GraphQLList } from 'graphql'
 

@@ -1,3 +1,5 @@
+//
+
 // Imports
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
@@ -49,6 +51,9 @@ class List extends PureComponent {
         {/* Crate list */}
         <Grid>
           <GridCell>
+
+// Displays all available crates to subscribe to (appear as cards) - but where is the subscribe button?
+// subscribe button is defined here: web/src/modules/crate/Item.js
             {
               this.props.crates.isLoading
                 ? <Loading/>

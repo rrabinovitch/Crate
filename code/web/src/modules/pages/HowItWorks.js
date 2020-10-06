@@ -1,3 +1,5 @@
+// What's the difference between this file tree and
+
 // Imports
 import React from 'react'
 import PropTypes from 'prop-types'
@@ -79,6 +81,7 @@ const HowItWorks = (props) => (
     {/* Bottom call to action bar */}
     <Grid style={{ backgroundColor: grey }}>
       <GridCell style={{ padding: '3em', textAlign: 'center' }}>
+// conditional rendering of start vs subscribe button dependent on whether you're a logged in user or a visiter
         {
           props.user.isAuthenticated
             ? <Link to={crateRoutes.list.path}>
