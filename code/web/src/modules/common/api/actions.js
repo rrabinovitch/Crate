@@ -1,4 +1,5 @@
 // Actions Types
+// Will have to include new actions for 'style-preferences'
 import axios from 'axios/index'
 import { routeApi } from '../../../setup/routes'
 

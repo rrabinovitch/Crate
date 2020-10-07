@@ -138,3 +138,4 @@ export const productsRelated = (state = productsRelatedInitialState, action) => 
   }
 }
 
+// Will need to add our 'style-preferences' state and update this state with the user preferences.
