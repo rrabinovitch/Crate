@@ -6,6 +6,7 @@ import { UserType } from '../user/types'
 import CrateType from '../crate/types'
 
 // Subscription type
+// format to make sure data is in the correct format/data types in database
 const SubscriptionType = new GraphQLObjectType({
   name: 'subscription',
   description: 'Subscription Type',
