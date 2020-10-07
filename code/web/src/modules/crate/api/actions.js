@@ -1,3 +1,5 @@
+// Will need to execute a POST request once the user has chosen their style preferences and submitted their choices'
+
 // Imports
 import axios from 'axios'
 import { query, mutation } from 'gql-query-builder'

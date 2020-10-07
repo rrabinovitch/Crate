@@ -20,6 +20,7 @@ const cratesInitialState = {
 }
 
 // State
+// Will need to add a reducer with a default state for our 'style-preferences' and later update the state based on the user's style choices.
 export const crates = (state = cratesInitialState, action) => {
   switch (action.type) {
     case CRATES_GET_LIST_REQUEST:

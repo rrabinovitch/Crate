@@ -4,6 +4,8 @@ import Signup from '../../modules/user/Signup'
 import Profile from '../../modules/user/Profile'
 import Subscriptions from '../../modules/user/Subscriptions'
 
+// Will need to add a path to 'style-preferences'
+
 // User routes
 export default {
   login: {

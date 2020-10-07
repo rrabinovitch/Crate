@@ -75,6 +75,7 @@ class Item extends PureComponent {
           <p style={{ color: grey2, marginTop: '1em' }}>{description}</p>
 
           <p style={{ textAlign: 'center', marginTop: '1.5em', marginBottom: '1em' }}>
+            {/* onClick currently executes a subscription. Will need to modify to route to /style-preferences to allow the user to pick their specific style choices. */}
             <Button
               theme="primary"
               onClick={this.onClickSubscribe.bind(this, id)}
