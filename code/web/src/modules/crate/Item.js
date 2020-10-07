@@ -28,44 +28,56 @@ class Item extends PureComponent {
     }
   }
 
+  // function that uses crate id
   onClickSubscribe = (crateId) => {
+    // changes isLoading in this.state to true
     this.setState({
       isLoading: true
-    }); // changes isLoading to true; disables subscribe button on card
+    });
 
+    // shows specified message
     this.props.messageShow('Subscribing, please wait...')
 
-    this.props.create({ crateId }) // calls post request to add a subscription
+    // calls post request to add a subscription
+    this.props.create({ crateId })
       .then(response => {
+         // if there is an error, show the message that was received
         if (response.data.errors && response.data.errors.length > 0) {
           this.props.messageShow(response.data.errors[0].message)
+        // if no errors, show that subscription was applied/added
         } else {
           this.props.messageShow('Subscribed successfully.')
-
-          this.props.history.push(userRoutes.subscriptions.path) // adds subscription to cards to display to user?
+          // adds subscription to cards to display to user? is this something with router?
+          this.props.history.push(userRoutes.subscriptions.path)
         }
       })
+      // if there was an error with the post request, it will display the following message on the screen.
       .catch(error => {
         this.props.messageShow('There was some error subscribing to this crate. Please try again.')
       })
+      // when done with either success or failure, makes button viable again; user can sign up for a crate more than once?
       .then(() => {
         this.setState({
           isLoading: false
-        }) // when done, makes button viable again; user can sign up for a crate more than once?
+        })
 
+        // removes message after 5 seconds
         window.setTimeout(() => {
           this.props.messageHide()
-        }, 5000) // removes message after 5 seconds
+        }, 5000)
       })
 
       // this would need to be adjusted to go to the style survey, add that info to the server/database, and then add the subscription for the user; might make sense to move this method to the style survey instead in that case.
   }
 
-  render() { // creates & renders each crate
+  // creates & renders each crate
+  render() {
+    // destructures props that are passed in from List component or from state
     const { id, name, description } = this.props.crate
     const { isLoading } = this.state
 
     return (
+      // styling and content for subscription boxes available cards
       <Card style={{ width: '18em', backgroundColor: white }}>
         <p style={{ padding: '2em 3em 0 3em' }}>
           <img src={`${ APP_URL }/images/crate.png`} alt={name} style={{ width: '100%' }}/>
@@ -77,6 +89,8 @@ class Item extends PureComponent {
           <p style={{ color: grey2, marginTop: '1em' }}>{description}</p>
 
           <p style={{ textAlign: 'center', marginTop: '1.5em', marginBottom: '1em' }}>
+          // button that allows the user to sign up for a subscription box
+          // when button is clicked, it calls onClickSubscribe method and binds this and id to the specific card that is clicked on.
             <Button
               theme="primary"
               onClick={this.onClickSubscribe.bind(this, id)}
@@ -84,7 +98,7 @@ class Item extends PureComponent {
               disabled={ isLoading }
             >
               <Icon size={1.2} style={{ color: white }}>add</Icon> Subscribe
-            </Button>// calls onClickSubscribe on user click
+            </Button>
           </p>
         </div>
       </Card>
@@ -101,6 +115,7 @@ Item.propTypes = {
 }
 
 // Component State
+// also known as mapStatetoProps
 function itemState(state) {
   return {
     user: state.user
