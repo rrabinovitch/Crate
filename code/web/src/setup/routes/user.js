@@ -5,6 +5,8 @@ import Profile from '../../modules/user/Profile'
 import Subscriptions from '../../modules/user/Subscriptions'
 
 // User routes
+// paths specifically associated w/user login & info
+// auth changed when user logs in?
 export default {
   login: {
     path: '/user/login',

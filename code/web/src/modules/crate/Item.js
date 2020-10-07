@@ -31,18 +31,18 @@ class Item extends PureComponent {
   onClickSubscribe = (crateId) => {
     this.setState({
       isLoading: true
-    })
+    }); // changes isLoading to true; disables subscribe button on card
 
     this.props.messageShow('Subscribing, please wait...')
 
-    this.props.create({ crateId })
+    this.props.create({ crateId }) // calls post request to add a subscription
       .then(response => {
         if (response.data.errors && response.data.errors.length > 0) {
           this.props.messageShow(response.data.errors[0].message)
         } else {
           this.props.messageShow('Subscribed successfully.')
 
-          this.props.history.push(userRoutes.subscriptions.path)
+          this.props.history.push(userRoutes.subscriptions.path) // adds subscription to cards to display to user?
         }
       })
       .catch(error => {
@@ -51,15 +51,17 @@ class Item extends PureComponent {
       .then(() => {
         this.setState({
           isLoading: false
-        })
+        }) // when done, makes button viable again; user can sign up for a crate more than once?
 
         window.setTimeout(() => {
           this.props.messageHide()
-        }, 5000)
+        }, 5000) // removes message after 5 seconds
       })
+
+      // this would need to be adjusted to go to the style survey, add that info to the server/database, and then add the subscription for the user; might make sense to move this method to the style survey instead in that case.
   }
 
-  render() {
+  render() { // creates & renders each crate
     const { id, name, description } = this.props.crate
     const { isLoading } = this.state
 
@@ -82,7 +84,7 @@ class Item extends PureComponent {
               disabled={ isLoading }
             >
               <Icon size={1.2} style={{ color: white }}>add</Icon> Subscribe
-            </Button>
+            </Button>// calls onClickSubscribe on user click
           </p>
         </div>
       </Card>

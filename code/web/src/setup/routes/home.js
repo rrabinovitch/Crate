@@ -6,6 +6,7 @@ import HowItWorks from '../../modules/pages/HowItWorks'
 import WhatsNew from '../../modules/pages/WhatsNew'
 
 // Home routes
+// these export the route paths for the buttons on the top left of the screen
 export default {
   home: {
     path: '/',

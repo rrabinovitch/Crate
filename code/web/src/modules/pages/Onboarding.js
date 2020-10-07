@@ -2,7 +2,7 @@
 import React, { PureComponent } from 'react'
 
 // UI Imports
-import { Grid, GridCell } from '../../ui/grid'
+import { Grid, GridCell } from '../../ui/grid' // package to add CSS grid into react
 import { H1, H6 } from '../../ui/typography'
 import Modal from '../../ui/modal/Modal'
 import Button from '../../ui/button'
@@ -16,7 +16,7 @@ import { APP_URL } from '../../setup/config/env'
 class Onboarding extends PureComponent {
 
   constructor(props) {
-    super(props)
+    super(props) // nothing passed in for props?
 
     this.state = {
       visible: false,
@@ -24,33 +24,33 @@ class Onboarding extends PureComponent {
     }
   }
 
-  componentDidMount() {
+  componentDidMount() { // on load,
     const onboarding = window.localStorage.getItem('onboarding')
-    if (!onboarding) {
-      this.toggleVisible(true)
+    if (!onboarding) { // if onboarding isn't in localStorage
+      this.toggleVisible(true) // calls toggleVisible
 
-      window.localStorage.setItem('onboarding', 1)
-    }
+      window.localStorage.setItem('onboarding', 1) // adds localStorage item for onboarding and sets to 1
+    } // on load, should display a modal window w/info on site
   }
 
   toggleVisible = (visible) => {
     this.setState({
-      visible
+      visible // changes visible in state to true when called; displays a modal window?
     })
   }
 
   nextStep = () => {
     this.setState(state => ({
-      currentStep: state.currentStep + 1
+      currentStep: state.currentStep + 1 // resets state current step and increases by 1
     }))
   }
 
   close = () => {
-    this.toggleVisible(false)
+    this.toggleVisible(false) // when called, changes visible to false
   }
 
   render() {
-    const steps = [
+    const steps = [ // array of different steps to display
       /* 1. Welcome to Crate */
       <Grid alignCenter={true} style={{ height: '100%', textAlign: 'center', color: white }}>
         {/* Left - Headline and info */}
@@ -59,7 +59,7 @@ class Onboarding extends PureComponent {
 
           <H6 style={{ marginTop: '0.5em' }}>Your monthly subscription of trendy <br/> clothes and accessories</H6>
 
-          <Button theme="primary" style={{ marginTop: '1.5em' }} onClick={this.nextStep}>Next</Button>
+          <Button theme="primary" style={{ marginTop: '1.5em' }} onClick={this.nextStep}>Next</Button> {/* this increases step count by 1*/}
         </GridCell>
 
         {/* Right - Image */}
@@ -118,6 +118,12 @@ class Onboarding extends PureComponent {
     return (
       <div>
         {/* Modal */}
+        {/* on load, this changes visible to true
+          modal window is displayed
+          each time the next button is clicked, it displays the next item in the steps array
+          when the user clicks on the Start button,
+          this.close is called, changing visibility to false
+        */}
         <Modal visible={this.state.visible}>
           {steps[this.state.currentStep]}
         </Modal>

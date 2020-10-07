@@ -37,7 +37,7 @@ const Home = (props) => (
       </Helmet>
 
       {/* Content */}
-      <GridCell>
+      <GridCell> {/* main content of screen/page on load */}
         <H1 font="secondary" style={{ textShadow: textLevel1 }}>Crate</H1>
 
         <H4 style={{ textShadow: textLevel1, marginTop: '0.5em' }}>
@@ -45,12 +45,14 @@ const Home = (props) => (
         </H4>
 
         {/* Call to action */}
-        {
-          props.user.isAuthenticated
-            ? <Link to={crateRoutes.list.path}>
+        { // button below content in h4 -
+          props.user.isAuthenticated // if user is isAuthenticated,
+            // if true, show this;
+            ? <Link to={crateRoutes.list.path}> {/*clicking on button pulls up all routes for crate */}
                 <Button theme="secondary" style={{ marginTop: '1em' }}>Get Subscription</Button>
               </Link>
-            : <Link to={userRoutes.signup.path}>
+              // if false, show this
+            : <Link to={userRoutes.signup.path}> {/*this pulls up all routes for users/new users */}
                 <Button theme="secondary" style={{ marginTop: '1em' }}>Get Started</Button>
               </Link>
         }
@@ -58,7 +60,7 @@ const Home = (props) => (
     </Grid>
 
     {/* Onboarding */}
-    <Onboarding/>
+    <Onboarding /> {/* imports onboarding component; modal window is not currently being displayed on load*/}
   </div>
 )
 
