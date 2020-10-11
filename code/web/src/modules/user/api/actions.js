@@ -26,6 +26,12 @@ export function setUser(token, user) {
 }
 
 // Login a user using credentials
+// LOGIN_REQUEST case toggling the isLoading state to true.
+// Dispatch is invoking setUser which is setting the case type to SET_USER
+// User is being saved to localStorage via loginSetUserLocalStorageAndCookie(token, user)
+
+// Will need to create an action that will POST to the user's style-preferences
+// Will need to add messaging/error messaging based on a successful/unsuccessful POST
 export function login(userCredentials, isLoading = true) {
   return dispatch => {
     dispatch({
