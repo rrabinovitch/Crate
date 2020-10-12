@@ -1,3 +1,5 @@
+// This is the How It Works page that explains to the user how the subscription service works. 
+
 // Imports
 import React from 'react'
 import PropTypes from 'prop-types'

@@ -77,6 +77,7 @@ class Item extends PureComponent {
           <p style={{ textAlign: 'center', marginTop: '1.5em', marginBottom: '1em' }}>
             <Button
               theme="primary"
+              // subscribe button for a crate 
               onClick={this.onClickSubscribe.bind(this, id)}
               type="button"
               disabled={ isLoading }

@@ -1,3 +1,5 @@
+// This is displays the Home page.
+
 // Imports
 import React from 'react'
 import PropTypes from 'prop-types'

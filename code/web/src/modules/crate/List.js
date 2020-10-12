@@ -52,6 +52,7 @@ class List extends PureComponent {
             {
               this.props.crates.isLoading
                 ? <Loading/>
+                // Displays all he available crates that a user can subscribe to
                 : this.props.crates.list.length > 0
                     ? this.props.crates.list.map(crate => (
                       <div key={crate.id} style={{ margin: '2em', float: 'left' }}>
