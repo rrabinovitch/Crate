@@ -1,3 +1,5 @@
+// Women's style page 
+
 // Imports
 import React from 'react'
 import PropTypes from 'prop-types'
