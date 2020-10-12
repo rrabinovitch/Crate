@@ -1,5 +1,5 @@
 // Actions Types
-// Will have to include new actions for 'style-preferences'
+// I'm not exactly sure if we need to add anything to this file regarding message feedback based on endpoint requests?
 import axios from 'axios/index'
 import { routeApi } from '../../../setup/routes'
 
