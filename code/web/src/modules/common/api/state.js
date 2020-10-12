@@ -2,6 +2,7 @@
 import { MESSAGE_SHOW, MESSAGE_HIDE } from './actions'
 
 // Initial State
+// what is in the redux store at the start
 export const commonInitialState = {
   message: {
     text: null,
@@ -12,6 +13,7 @@ export const commonInitialState = {
 // State
 export default (state = commonInitialState, action) => {
   switch (action.type) {
+    // adds the message to be shown to store
     case MESSAGE_SHOW:
       return {
         ...state,
@@ -21,6 +23,7 @@ export default (state = commonInitialState, action) => {
         }
       }
 
+    // removes message from the store
     case MESSAGE_HIDE:
       return {
         ...state,
@@ -30,6 +33,7 @@ export default (state = commonInitialState, action) => {
         }
       }
 
+    // returns default state stated at the top of this file
     default:
       return state
   }

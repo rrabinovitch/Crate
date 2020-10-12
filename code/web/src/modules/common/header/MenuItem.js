@@ -12,6 +12,7 @@ import { level1 } from '../../../ui/common/shadows'
 const MenuItem = (props) => {
   const { children, to, type, active, style, section } = props
 
+  // checks if it's an active route
   const isActiveRoute = () => {
     const currentSection = props.location.pathname.split('/')[1]
 
@@ -19,7 +20,8 @@ const MenuItem = (props) => {
       || props.location.pathname === to
       || active
   }
-
+  // to passes in the link path from header
+  // isActiveRoute checks & changes styling if it's active, otherwise keeps assigned styling
   return (
     <Link
       to={to}

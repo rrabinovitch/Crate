@@ -57,14 +57,14 @@ class List extends PureComponent {
           <GridCell>
             { /* if isLoading is true, (changed as soon as fetch request happens on load, passed in as an argument)*/
               this.props.crates.isLoading
-                ? <Loading/> {/* displays loading screen while fetch completes*/}
-                : this.props.crates.list.length > 0 {/* if crates retrieved is greater than 0*/}
+                ? <Loading/> /* displays loading screen while fetch completes*/
+                : this.props.crates.list.length > 0 /* if crates retrieved is greater than 0*/
                     ? this.props.crates.list.map(crate => (
                       <div key={crate.id} style={{ margin: '2em', float: 'left' }}>
                         <CrateItem crate={crate}/>
-                      </div> {/* above code iterates over all retrieved crates and then calls a new component to display each crate*/}
+                      </div> /* above code iterates over all retrieved crates and then calls a new component to display each crate*/
                     ))
-                    : <EmptyMessage message="No crates to show" /> {/* if there are no crates, calls component to display message*/}
+                    : <EmptyMessage message="No crates to show" /> /* if there are no crates, calls component to display message*/
             }
           </GridCell>
         </Grid>

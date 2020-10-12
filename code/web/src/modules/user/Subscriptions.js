@@ -24,6 +24,7 @@ class Subscriptions extends PureComponent {
   }
 
   // Runs on client only
+  // on load, gets list of all subscriptions a user has
   componentDidMount() {
     this.props.getListByUser()
   }
@@ -32,11 +33,13 @@ class Subscriptions extends PureComponent {
     return (
       <div>
         {/* SEO */}
+        {/* changes header of html document */}
         <Helmet>
           <title>My Subscriptions - Crate</title>
         </Helmet>
 
         {/* Top title bar */}
+        {/* Displays & styles header for a user's subscriptions */}
         <Grid style={{ backgroundColor: grey }}>
           <GridCell style={{ padding: '2em', textAlign: 'center' }}>
             <H3 font="secondary">My subscriptions</H3>
@@ -48,17 +51,21 @@ class Subscriptions extends PureComponent {
         </Grid>
 
         {/* Product list */}
+        {/* Displays all subscriptions a user has */}
         <Grid>
           <GridCell>
             {
+              {/* if isLoading is true, displays the loading page*/}
               this.props.subscriptions.isLoading
                 ? <Loading/>
-                : this.props.subscriptions.list.length > 0
+                {/*  if the user's subscriptions data has been retrieved */}
+                : this.props.subscriptions.list.length > 0 {/* if there items in the retrieved array, iterates over the crates and styles & displays those crates by calling the component SubscriptionItem*/}
                     ? this.props.subscriptions.list.map(subscription => (
                         <div key={subscription.id} style={{ margin: '2em', float: 'left' }}>
                           <SubscriptionItem subscription={subscription} />
                         </div>
                       ))
+                      {/* if there are no crates, calls the component to display the below message */}
                     : <EmptyMessage message="You are not subscribed to any crates yet." />
             }
           </GridCell>

@@ -16,19 +16,24 @@ import Header from './header/Header'
 class Layout extends PureComponent {
 
   render() {
+    // children allows you use something that is passed in w/out being explicit
     const { children } = this.props
 
     return (
       <div>
+        {/* Calls & Displays header */}
         {/* Header */}
         <Header/>
 
+        {/* passes in routes displays the applicable one (home on load, another page on click, etc.)*/}
         {/* Page Content */}
         <section style={{ marginTop: '5em' }}>
           {children}
         </section>
 
+        {/* displays messages if they are in state/store */}
         {/* Messages */}
+        {/* will only render if there is a message in the common state; this is styling & display of error message*/}
         {renderIf(this.props.common.message.open, () => (
           <div style={{
             boxShadow: level2,

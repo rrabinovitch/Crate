@@ -2,6 +2,7 @@
 import { compose, combineReducers } from 'redux'
 import { createStore, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
+import { composeWithDevTools } from 'redux-devtools-extension'
 
 // App Imports
 import common from '../modules/common/api/state'
@@ -11,6 +12,7 @@ import * as subscription from '../modules/subscription/api/state'
 import * as crate from '../modules/crate/api/state'
 
 // App Reducer
+// below combines all reducers to create the redux store; all data in individual reducers is added to this object.
 const appReducer = combineReducers({
   common,
   user,
@@ -20,6 +22,7 @@ const appReducer = combineReducers({
 })
 
 // Root Reducer
+// if the action type is reset, it'll clear the store, otherwise it'll display the store as created in appReducer
 export const rootReducer = (state, action) => {
   if (action.type === 'RESET') {
     state = undefined
@@ -36,11 +39,12 @@ if (typeof window !== 'undefined') {
 }
 
 // Store
+// creates the store to be used throughout the app
 export const store = createStore(
   rootReducer,
   initialState,
 
-  compose(
+  composeWithDevTools(
     applyMiddleware(thunk),
   )
 )

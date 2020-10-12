@@ -28,33 +28,42 @@ class Item extends PureComponent {
   }
 
   onClickUnsubscribe = (id) => {
+    // creates a dialog box that a user can confirm the deletion
     let check = confirm('Are you sure you want to unsubscribe to this crate?')
 
+    // if user selects ok, sets isLoading to true to display a loading message
     if(check) {
       this.setState({
         isLoading: true
       })
-
+      // message that should be shown - should be changed to unsubscribing?
       this.props.messageShow('Subscribing, please wait...')
 
+      // calls the remove from the subscription/actions file; post request to remove that crate from that user's subscriptions
       this.props.remove({id})
         .then(response => {
+          // if there is an error message on retrieving the post request data, it will be shown on the messageShow component
           if (response.data.errors && response.data.errors.length > 0) {
             this.props.messageShow(response.data.errors[0].message)
+          // if there is no error message, unsubscribing has worked and displays a message saying so
           } else {
             this.props.messageShow('Unsubscribed successfully.')
 
+            // calls function to update the user's subscribed boxes & displays them
             this.props.getListByUser()
           }
         })
+        // if there is an error with the post request, the below message will be shown.
         .catch(error => {
           this.props.messageShow('There was some error subscribing to this crate. Please try again.')
         })
+        // once the request is complete or an error is thrown, is loading is set to false to remove loading message
         .then(() => {
           this.setState({
             isLoading: false
           })
 
+          // hides any of the displayed messages after 5 seconds
           window.setTimeout(() => {
             this.props.messageHide()
           }, 5000)
@@ -62,6 +71,8 @@ class Item extends PureComponent {
     }
   }
 
+  // displays the crate a user is subscribed to
+  // styling and info for that specific crate
   render() {
     const { id, crate, createdAt } = this.props.subscription
     const { isLoading } = this.state
@@ -78,6 +89,7 @@ class Item extends PureComponent {
           <p style={{ color: grey2, marginTop: '1em' }}>{ crate.description }</p>
 
           <p style={{ textAlign: 'center', marginTop: '1.5em', marginBottom: '1em' }}>
+          {/* onClickUnsubscribe is called when the button is clicked; binds this and id to the card the button is clicked on */}
             <Button
               theme="secondary"
               onClick={this.onClickUnsubscribe.bind(this, id)}
@@ -87,7 +99,7 @@ class Item extends PureComponent {
               <Icon size={1.2} style={{ color: white }}>remove_circle_outline</Icon> Unsubscribe
             </Button>
           </p>
-
+          // states when the person subscribed to this crate
           <p style={{ color: grey2, marginTop: '1em', fontSize: '0.8em', textAlign: 'center' }}>
             Subscribed on { new Date(parseInt(createdAt)).toDateString() }
           </p>

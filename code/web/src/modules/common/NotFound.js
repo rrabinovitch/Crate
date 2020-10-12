@@ -13,6 +13,7 @@ import { APP_URL } from '../../setup/config/env'
 import home from '../../setup/routes/home'
 
 // Component
+// used & displayed if a route is tried that does not exist
 const NotFound = () => (
   <div>
     {/* SEO */}
@@ -21,12 +22,14 @@ const NotFound = () => (
     </Helmet>
 
     {/* Top title bar */}
+    {/* Title to display and associated styling */}
     <Grid style={{ backgroundColor: grey }}>
       <GridCell style={{ padding: '2em', textAlign: 'center' }}>
         <H3 font="secondary">Feeling lost?</H3>
       </GridCell>
     </Grid>
 
+    {/* Explanation of error and a link/path to return to the home page; also includes styling for this part */}
     <Grid>
       <GridCell style={{ textAlign: 'center' }}>
         <p style={{ textAlign: 'center', marginTop: '2em', marginBottom: '2em' }}>

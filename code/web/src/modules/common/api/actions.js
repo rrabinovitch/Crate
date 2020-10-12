@@ -6,14 +6,17 @@ export const MESSAGE_SHOW = 'COMMON_MESSAGE_SHOW'
 export const MESSAGE_HIDE = 'COMMON_MESSAGE_HIDE'
 
 // Actions
+// action creator that adds a message to store
 export function messageShow(message) {
   return { type: MESSAGE_SHOW, message }
 }
 
+// action creator that hides a message
 export function messageHide() {
   return { type: MESSAGE_HIDE }
 }
 
+// action creator that posts upload data to the database
 export function upload(data) {
   return dispatch => {
     return axios.post(routeApi + '/upload', data, {
@@ -23,4 +26,3 @@ export function upload(data) {
     })
   }
 }
-

@@ -3,6 +3,7 @@ import React, { PureComponent } from 'react'
 import { withRouter } from 'react-router-dom'
 
 // Component
+// if the page changes from previous page, automatically scroll to the top of the new page
 class ScrollToTop extends PureComponent {
 
   componentDidUpdate(prevProps) {

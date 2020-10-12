@@ -21,6 +21,7 @@ import MenuItem from './MenuItem'
 // Component
 const Header = (props) => {
   return (
+    // styling for header
     <header style={{
       backgroundImage: primaryGradient,
       boxShadow: level1,
@@ -31,6 +32,9 @@ const Header = (props) => {
       right: 0,
       top: 0
     }}>
+    // displays  left hand side of header; creates route paths
+    // menu iterates over the MenuItems passed in
+    // MenuItem creates styling for links if they are active or inactive
       <Grid alignCenter={true} style={{ marginTop: '1.5em' }}>
         <GridCell>
           {/* Logo */}
@@ -49,6 +53,7 @@ const Header = (props) => {
         </GridCell>
 
         {/* Right menu */}
+        {/* If user isAuthenticated is true, it iterates over the links passed in to display logged in user's specifically. If they aren't logged in, it displays links to allow a user to login or sign up*/}
         <GridCell style={{ textAlign: 'right' }}>
           {
             props.user.isAuthenticated
