@@ -38,6 +38,8 @@ export function login(userCredentials, isLoading = true) {
       variables: userCredentials,
       fields: ['user {name, email, role}', 'token']
     }))
+    // ^ this seems to limit which user attributes are accessible
+    // we would likely add a 'style' attribute after 'role'
       .then(response => {
         let error = ''
 

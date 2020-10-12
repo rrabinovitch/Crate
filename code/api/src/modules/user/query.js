@@ -21,6 +21,8 @@ export const user = {
   },
   resolve: getById
 }
+// this is likely what FE would use to access the user info after their style has been saved
+// in order to return their style info
 
 // Auth
 export const userLogin = {

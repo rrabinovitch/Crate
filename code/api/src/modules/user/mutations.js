@@ -1,4 +1,6 @@
 // GraphQL create, update, & destroy actions for user model
+// this doesnt seem to include an update method
+// BE will likely need to create this update method with conditional logic re: what style type to save after a style survey has been filled out
 
 // Imports
 import { GraphQLString, GraphQLInt } from 'graphql'
