@@ -1,3 +1,6 @@
+// an authToken is required in order for a user to do specific actions
+// this seems to be the alternative to a session? or the application controller current_user Rails equivalent
+
 // Imports
 import jwt from 'jsonwebtoken'
 import serverConfig from '../config/server.json'

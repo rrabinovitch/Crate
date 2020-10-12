@@ -1,3 +1,9 @@
+// "A resolver is a function that's responsible for populating the data for a single field in your schema
+  // Whenever a client queries for a particular field, the resolver for that field fetches the requested data from the appropriate data source."
+//  resolver function will return either data of the type required by resolver's corrsponding schema field
+  // OR a promise that fulfills with data of required type
+// https://www.apollographql.com/docs/tutorial/resolvers/
+
 // App Imports
 import models from '../../setup/models'
 import params from '../../config/params'

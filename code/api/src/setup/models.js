@@ -1,3 +1,7 @@
+// seems to specify which files define the models involved in the db
+// maybe like the equivalent of a rails schema file? but with the actual details abstracted out into the individual files listed below in the models constant
+
+
 // Imports
 import Sequelize from 'sequelize'
 

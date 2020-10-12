@@ -1,3 +1,5 @@
+// something about how we connect to the db
+
 // Imports
 import { Sequelize } from 'sequelize'
 
@@ -26,5 +28,6 @@ connection
   .catch(err => {
     console.error('ERROR - Unable to connect to the database:', err)
   })
+// these are the success or error messages we receive when connecting to the db?
 
 export default connection

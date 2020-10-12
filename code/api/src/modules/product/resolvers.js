@@ -1,3 +1,6 @@
+// take in arguments from queries and mutations
+// functions interact with the db to fetch or return info (including potential errors)
+
 // App Imports
 import params from '../../config/params'
 import models from '../../setup/models'

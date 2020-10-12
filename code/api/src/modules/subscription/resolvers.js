@@ -15,6 +15,7 @@ export async function get(parentValue, { id }) {
 // Get subscription by user
 export async function getByUser(parentValue, {}, { auth }) {
   if(auth.user && auth.user.id > 0) {
+    // requires that a user is authenticated in order to create or destroy a subscription
     return await models.Subscription.findAll({
       where: {
         userId: auth.user.id
@@ -25,6 +26,7 @@ export async function getByUser(parentValue, {}, { auth }) {
       ]
     })
   } else {
+    // this is the error a visitor will receive if they are not an authenticated user
     throw new Error('Please login to view your subscriptions.')
   }
 }

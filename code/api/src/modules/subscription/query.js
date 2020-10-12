@@ -1,3 +1,5 @@
+// GraphQL subscription GET requests/read actions
+
 // Imports
 import { GraphQLInt, GraphQLList } from 'graphql'
 

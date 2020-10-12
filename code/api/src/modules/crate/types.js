@@ -1,3 +1,6 @@
+// tells GraphQL what our crate model looks like
+// equivalent to rails validations??
+
 // Imports
 import { GraphQLObjectType, GraphQLString, GraphQLInt } from 'graphql'
 

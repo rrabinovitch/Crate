@@ -1,3 +1,8 @@
+// subscription attributes
+  // user id foreign key
+  // crate id foreign key
+// defines that a subscription has a belongs to relationship with a user and a crate
+
 'use strict'
 
 // Subscription

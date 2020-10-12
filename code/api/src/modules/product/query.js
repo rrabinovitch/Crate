@@ -1,4 +1,4 @@
-// this file seems to list the available queries we can make of the api
+// GraphQL product GET requests/read actions
 
 // Imports
 import { GraphQLString, GraphQLInt, GraphQLList } from 'graphql'

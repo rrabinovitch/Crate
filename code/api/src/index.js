@@ -1,3 +1,5 @@
+// not totally clear on the purpose or function of this file other than that it seems to gather all the other set up files into one file
+
 // Imports
 import express from 'express'
 

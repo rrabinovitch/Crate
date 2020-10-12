@@ -1,3 +1,5 @@
+// GraphQL create, update, & destroy actions for subscription model
+
 // Imports
 import { GraphQLInt } from 'graphql'
 

@@ -1,3 +1,5 @@
+// GraphQL crate GET requests/read actions
+
 // Imports
 import { GraphQLInt, GraphQLString, GraphQLList } from 'graphql'
 

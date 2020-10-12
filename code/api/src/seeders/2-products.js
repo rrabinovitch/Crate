@@ -1,6 +1,12 @@
+// seeds several products
+// images are pulled from '/code/api/public/images' directory
+
 'use strict';
 
 const params = require('../config/params');
+// ^this seems to be where the gender enum values are defined
+// 1 = male; 2 = female
+// note that the values dont start at 0 like ive usually seen - maybe this is a different convention?
 
 module.exports = {
   up: (queryInterface, Sequelize) => {

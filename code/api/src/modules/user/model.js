@@ -1,3 +1,11 @@
+// user attributes
+  // name
+  // email
+  // password
+  // role
+    // ---doesnt seem to specify which role types there are, but based on seeded data there is ADMIN & USER---
+    // maybe scratch that^ ? see 'code/api/src/config/params.json' for where i think the role types are defined
+
 'use strict'
 
 // User

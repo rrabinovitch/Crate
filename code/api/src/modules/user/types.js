@@ -1,3 +1,5 @@
+// tells GraphQL what our user model looks like
+
 // Imports
 import { GraphQLObjectType, GraphQLString, GraphQLInt } from 'graphql'
 

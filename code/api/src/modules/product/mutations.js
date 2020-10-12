@@ -1,3 +1,5 @@
+// GraphQL create, update, & destroy actions for product model
+
 // Imports
 import { GraphQLString, GraphQLInt } from 'graphql'
 

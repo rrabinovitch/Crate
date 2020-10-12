@@ -1,3 +1,7 @@
+// seeds crates, which serve as the *types* of packages a user can subscribe to
+  // (subscriptions serve as the join table/resource between users and crates)
+//
+
 'use strict';
 
 module.exports = {
