@@ -16,6 +16,8 @@ import userRoutes from '../../setup/routes/user'
 import { logout } from './api/actions'
 
 // Component
+// On users show page this generates their information
+// Optional but maybe add their style on this page as well ? 
 const Profile = (props) => (
   <div>
     {/* SEO */}

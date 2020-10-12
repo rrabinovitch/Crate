@@ -16,14 +16,19 @@ import EmptyMessage from '../common/EmptyMessage'
 import CrateItem from './Item'
 
 // Component
+// Component = an individual crate object
 class List extends PureComponent {
 
   // Runs on server only for SSR
+  // Fetches crate information from server
   static fetchData({ store }) {
     return store.dispatch(getCratesList('ASC'))
   }
 
   // Runs on client only
+  // This method lists all available crates that a user see's (mem's, womens, etc)
+  // This is where we have to interject to change the route to the style survery route
+  // Currently it just goes to a users dashboard upon subscribing
   componentDidMount() {
     this.props.getCratesList('ASC')
   }
@@ -68,12 +73,14 @@ class List extends PureComponent {
 }
 
 // Component Properties
+// Require property for the object
 List.propTypes = {
   crates: PropTypes.object.isRequired,
   getCratesList: PropTypes.func.isRequired
 }
 
 // Component State
+// State is the current crate object
 function listState(state) {
   return {
     crates: state.crates

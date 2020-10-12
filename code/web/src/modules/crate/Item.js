@@ -18,6 +18,11 @@ import { messageShow, messageHide } from '../common/api/actions'
 import { create } from '../subscription/api/actions'
 
 // Component
+// These are each individual crate that get generated for the user to see and their styling
+// found under render
+// Method contains happy path for subscribing
+// and sad paths for crates not rendering or timing out as well under 'on click subscribe'
+// Need to make sure the 'subscribe' button route goes where we want it to
 class Item extends PureComponent {
 
   constructor(props) {
@@ -91,6 +96,7 @@ class Item extends PureComponent {
 }
 
 // Component Properties
+// Required information of crate and user for loading
 Item.propTypes = {
   crate: PropTypes.object.isRequired,
   user: PropTypes.object.isRequired,
@@ -99,6 +105,7 @@ Item.propTypes = {
 }
 
 // Component State
+// State is the current logged in user
 function itemState(state) {
   return {
     user: state.user

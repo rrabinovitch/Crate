@@ -6,12 +6,15 @@ import { UserType, UserLoginType, UserGenderType } from './types'
 import { getAll, getById, login, getGenders } from './resolvers'
 
 // All
+// Queries = search methods!
+// return all
 export const users = {
   type: new GraphQLList(UserType),
   resolve: getAll
 }
 
 // By ID
+// search by a certain ID
 export const user = {
   type: UserType,
   args: {
@@ -21,6 +24,7 @@ export const user = {
 }
 
 // Auth
+// Login auth
 export const userLogin = {
   type: UserLoginType,
   args: {
@@ -43,6 +47,7 @@ export const userLogin = {
 }
 
 // Genders
+// Search by gender
 export const userGenders = {
   type: new GraphQLList(UserGenderType),
   resolve: getGenders

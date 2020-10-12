@@ -7,19 +7,24 @@ import serverConfig from '../../config/server'
 import params from '../../config/params'
 import models from '../../setup/models'
 
+// Resolvers = Methods ran on object
 // Create
+// Ran when a new user is created
+// Method for deciding style will go here?
 export async function create(parentValue, { name, email, password }) {
   // Users exists with same email check
   const user = await models.User.findOne({ where: { email } })
 
   if (!user) {
     // User does not exists
+    // ie: make a new one, make it with these params
     const passwordHashed = await bcrypt.hash(password, serverConfig.saltRounds)
 
     return await models.User.create({
       name,
       email,
       password: passwordHashed
+  //  stylePref: null
     })
   } else {
     // User exists
