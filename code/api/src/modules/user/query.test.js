@@ -18,6 +18,11 @@ describe("user queries", () => {
     );
   });
 
+  // this is what I think needs to be added in order to teardown
+  // afterAll(() => {
+  //   server.close();
+  // });
+
   it("returns all users", async () => {
     const response = await request(server)
     .post('/')
