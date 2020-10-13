@@ -5,7 +5,7 @@ import { GraphQLSchema } from 'graphql'
 import query from './queries'
 import mutation from './mutations'
 
-// Schema
+// Schema (graphQL schema, not db schema)
 const schema = new GraphQLSchema({
   query,
   mutation
