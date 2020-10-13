@@ -18,26 +18,23 @@ describe("user queries", () => {
     );
   });
 
-  it("is true", () => {
-    expect(true).toBe(true)
-  });
-
   it("returns all users", async () => {
     const response = await request(server)
-    .get('/')
+    .post('/')
     .send({ query: '{ users { name email } }'})
     .expect(200)
 
-    console.log(response.body.data)
     expect(response.body.data.users.length).toEqual(2)
   });
 
   it("returns user by id", async () => {
     const response = await request(server)
-    .get('/')
+    .post('/')
     .send({ query: '{ user(id: 2) {email name} }'})
     .expect(200)
-    console.log(response.body.data)
+
     expect(response.body.data.user.name).toEqual('The User')
+    expect(response.body.data.user.email).toEqual('user@crate.com')
+    expect(response.body.data.user.style).toBeUndefined()
   });
 });
