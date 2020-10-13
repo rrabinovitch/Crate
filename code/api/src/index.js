@@ -9,6 +9,7 @@ import setupStartServer from './setup/start-server'
 
 // Create express server
 const server = express()
+// server=app in most documentation
 
 // Setup load modules
 setupLoadModules(server)
