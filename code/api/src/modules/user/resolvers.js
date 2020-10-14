@@ -7,6 +7,18 @@ import serverConfig from '../../config/server'
 import params from '../../config/params'
 import models from '../../setup/models'
 
+// Update user
+export async function update(parentValue, { id, style }) {
+  // the style variable will be our final
+  // return from our calculation
+  var style = "what!"
+    return await models.User.update(
+      {
+        style: style
+      },
+      {where: {id}}
+    )}
+
 // Create
 export async function create(parentValue, { name, email, password }) {
   // Users exists with same email check
