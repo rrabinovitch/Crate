@@ -21,8 +21,9 @@ describe("user queries", () => {
     );
   });
 
-  beforeEach(async () => {
+  beforeAll(async () => {
     const user1Data = {
+      id: 1,
       name: "The Admin",
       email: "admin@crate.com",
       password: bcrypt.hashSync('password123', 10),
@@ -30,6 +31,7 @@ describe("user queries", () => {
     };
 
     const user2Data = {
+      id: 2,
       name: "The User",
       email: "user@crate.com",
       password: bcrypt.hashSync('password321', 10),
@@ -40,10 +42,10 @@ describe("user queries", () => {
     await models.User.create(user2Data);
   });
 
-  // this is what I think needs to be added in order to teardown
-  // afterAll(() => {
-  //   server.close();
-  // });
+  afterAll(async () => {
+    await models.User.destroy({ where: {} })
+    server.close();
+  });
 
   it("returns all users", async () => {
     const response = await request(server)
