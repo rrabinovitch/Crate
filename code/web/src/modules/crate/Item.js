@@ -16,7 +16,7 @@ import { APP_URL } from '../../setup/config/env'
 import userRoutes from '../../setup/routes/user'
 import { messageShow, messageHide } from '../common/api/actions'
 import { create } from '../subscription/api/actions'
-
+import crateRoutes from '../../setup/routes/crate'
 // Component
 class Item extends PureComponent {
 
