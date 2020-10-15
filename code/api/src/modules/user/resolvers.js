@@ -9,15 +9,47 @@ import models from '../../setup/models'
 
 // Update user
 export async function update(parentValue, { id, style }) {
-  // the style variable will be our final
-  // return from our calculation
-  var style = "what!"
-    return await models.User.update(
-      {
-        style: style
-      },
-      {where: {id}}
-    )}
+
+  var commaRemove = style.replace(/,/g, '')
+  const array = Array.from(commaRemove)
+
+  let map = new Map()
+  for (let num of array) {
+      map.set(num, (map.get(num) || 0) + 1)
+  }
+
+  let mostCommonNumber = NaN
+  let maxCount = -1
+  for (let [num, count] of map.entries()) {
+      if (count > maxCount) {
+          maxCount = count
+          mostCommonNumber = num
+      }
+  }
+
+  // sets style variable
+  var newStyle = null
+
+  //assigns newStyle variable
+  if (mostCommonNumber == 1) {
+    newStyle = "Sporty"
+  } else if (mostCommonNumber == 2) {
+    newStyle = "Scary"
+  } else if (mostCommonNumber == 3) {
+    newStyle = "Posh"
+  } else if (mostCommonNumber == 4) {
+    newStyle = "Gingery"
+  } else {
+    newStyle = "Cute"
+  }
+
+  //updates user with new variable
+  return await models.User.update(
+    {
+      style: newStyle
+    },
+    {where: {id}}
+  )}
 
 // Create
 export async function create(parentValue, { name, email, password }) {
