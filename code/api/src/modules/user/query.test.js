@@ -25,14 +25,14 @@ describe("user queries", () => {
     const user1Data = {
       name: "The Admin",
       email: "admin@crate.com",
-      password: bcrypt.hash('password123', 10),
+      password: bcrypt.hashSync('password123', 10),
       role: "admin",
     };
 
     const user2Data = {
       name: "The User",
       email: "user@crate.com",
-      password: bcrypt.hash('password321', 10),
+      password: bcrypt.hashSync('password321', 10),
       role: "user",
     };
 
