@@ -16,7 +16,7 @@ import { APP_URL } from '../../setup/config/env'
 import userRoutes from '../../setup/routes/user'
 import { messageShow, messageHide } from '../common/api/actions'
 import { create } from '../subscription/api/actions'
-
+import crateRoutes from '../../setup/routes/crate'
 // Component
 class Item extends PureComponent {
 
@@ -28,7 +28,12 @@ class Item extends PureComponent {
     }
   }
 
-  onClickSubscribe = (crateId) => {
+  
+onClickSubscribe = (crateId) => {
+  const { style } = this.props.user
+  if (style === null) {
+    this.props.history.push(crateRoutes.survey.path)
+  } else {
     this.setState({
       isLoading: true
     })
@@ -58,6 +63,7 @@ class Item extends PureComponent {
         }, 5000)
       })
   }
+}
 
   render() {
     const { id, name, description } = this.props.crate
