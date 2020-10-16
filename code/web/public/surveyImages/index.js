@@ -5,3 +5,5 @@ export const bottomArray = [`/surveyImages/sporty/sporty-bottoms.jpg`, `/surveyI
 export const shoesArray = [`/surveyImages/sporty/sporty-shoes.jpg`, `/surveyImages/scary/scaryTop.jpg`, `/surveyImages/posh/brown-dress-shoe.jpeg`, `/surveyImages/ginger/red-shoes.jpg`, `/surveyImages/baby/pink-shoes.jpg`];
 
 export const accessoriesArray = [`/surveyImages/sporty/sporty-backpack.jpg`, `/surveyImages/scary/scaryTop.jpg`, `/surveyImages/posh/watch.jpeg`, `/surveyImages/ginger/red-lips.jpg`, `/surveyImages/baby/baby-necklace.jpg`];
+
+//blah
