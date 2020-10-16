@@ -7,7 +7,8 @@ import { APP_URL } from '../../setup/config/env'
 import { H1, H2, H3, H4 } from '../../ui/typography'
 import Button from '../../ui/button'
 import { topArray, bottomArray, shoesArray, accessoriesArray } from '../../../public/surveyImages/index.js'
-
+import {submitSurvey} from './api'
+import { connect } from 'react-redux'
 class Survey extends PureComponent {
   constructor(props){
     super(props);
@@ -63,8 +64,22 @@ class Survey extends PureComponent {
     const styleType = event.target.className;
     this.setState({ [styleType]: event.target.dataset.value});
     // need to find a way to remove an outline when a user clicks away from a choice ;'
-    '
+    
     return event.target.style.outlineStyle = 'solid'
+  }
+
+  handleSubmit = (event) => {
+    console.log('I was clicked')
+    const results = [this.state.tops, this.state.bottoms, this.state.shoes, this.state.accessories].join(', ')
+    console.log('results', results)
+    console.log('type', typeof results)
+    this.props.submitSurvey(results)
+    // .catch(error => {
+    //   dispatch({
+    //     type: UPDATE_STYLE,
+    //     error: 'Please try again'
+    //   })
+    // })
   }
 
   render() {
@@ -110,11 +125,12 @@ class Survey extends PureComponent {
             {accessoriesRow}
           </Grid>
           <div style={{display: 'flex', justifyContent: 'center'}}>
-            <Button type="submit" theme="secondary" disabled={false}>Submit Survey</Button>
+            <Button onClick={this.handleSubmit} type="submit" theme="secondary" disabled={false}>Submit Survey</Button>
           </div>
       </div>
     )
   }
 }
 
-export default Survey;
+
+export default connect(null, { submitSurvey })(Survey)
