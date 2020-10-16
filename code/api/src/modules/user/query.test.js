@@ -2,6 +2,9 @@ import request from 'supertest';
 import express from 'express';
 import graphqlHTTP from 'express-graphql';
 import schema from '../../setup/schema';
+import models from '../../setup/models';
+
+const bcrypt = require('bcrypt');
 
 describe("user queries", () => {
   let server;
@@ -18,10 +21,31 @@ describe("user queries", () => {
     );
   });
 
-  // this is what I think needs to be added in order to teardown
-  // afterAll(() => {
-  //   server.close();
-  // });
+  beforeAll(async () => {
+    const userData1 = {
+      id: 1,
+      name: "The Admin",
+      email: "admin@crate.com",
+      password: bcrypt.hashSync('password123', 10),
+      role: "admin"
+    };
+
+    const userData2 = {
+      id: 2,
+      name: "The User",
+      email: "user@crate.com",
+      password: bcrypt.hashSync('password321', 10),
+      role: "user"
+    };
+
+    await models.User.create(userData1);
+    await models.User.create(userData2);
+  });
+
+  afterAll(async () => {
+    await models.User.destroy({ where: {} })
+    server.close();
+  });
 
   it("returns all users", async () => {
     const response = await request(server)
