@@ -37,4 +37,11 @@ describe("user mutations", () => {
     await models.User.destroy({ where: {} })
     server.close();
   });
+
+  it("updates user's style preference", async() => {
+    const response = await request(server)
+    .post('/')
+    .send({ mutation: '{ userUpdate(id: 2, style: "cute") { id name email } }'})
+    .expect(200)
+  })
 })
