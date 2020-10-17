@@ -8,9 +8,7 @@ import params from '../../config/params'
 import models from '../../setup/models'
 
 // Update user
-export async function update(parentValue, { obj }) {
-  const style = obj.style
-  const id = obj.id
+export async function update(parentValue, { id, style }) {
   var commaRemove = style.replace(/,/g, '')
   const array = Array.from(commaRemove)
 
