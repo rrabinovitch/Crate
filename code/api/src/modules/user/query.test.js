@@ -3,8 +3,7 @@ import express from 'express';
 import graphqlHTTP from 'express-graphql';
 import schema from '../../setup/schema';
 import models from '../../setup/models';
-
-const bcrypt = require('bcrypt');
+import * as mockData from '../../mock/index'
 
 describe("user queries", () => {
   let server;
@@ -22,24 +21,8 @@ describe("user queries", () => {
   });
 
   beforeAll(async () => {
-    const userData1 = {
-      id: 1,
-      name: "The Admin",
-      email: "admin@crate.com",
-      password: bcrypt.hashSync('password123', 10),
-      role: "admin"
-    };
-
-    const userData2 = {
-      id: 2,
-      name: "The User",
-      email: "user@crate.com",
-      password: bcrypt.hashSync('password321', 10),
-      role: "user"
-    };
-
-    await models.User.create(userData1);
-    await models.User.create(userData2);
+    await models.User.create(mockData.userData1);
+    await models.User.create(mockData.userData2);
   });
 
   afterAll(async () => {
