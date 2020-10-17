@@ -71,9 +71,10 @@ class Survey extends PureComponent {
   handleSubmit = (event) => {
     console.log('I was clicked')
     const results = [this.state.tops, this.state.bottoms, this.state.shoes, this.state.accessories].join(', ')
+    const id = this.props.user.details.id
     console.log('results', results)
     console.log('type', typeof results)
-    this.props.submitSurvey(results)
+    this.props.submitSurvey(results, id)
     // .catch(error => {
     //   dispatch({
     //     type: UPDATE_STYLE,
@@ -132,5 +133,10 @@ class Survey extends PureComponent {
   }
 }
 
+function getUserState(state) {
+  return {
+    user: state.user
+  }
+}
 
-export default connect(null, { submitSurvey })(Survey)
+export default connect(getUserState, { submitSurvey })(Survey)

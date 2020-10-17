@@ -11,16 +11,20 @@ export const LOGIN_REQUEST = 'AUTH/LOGIN_REQUEST'
 export const SURVEY_REQUEST = 'AUTH/SURVEY_REQUEST'
 export const UPDATE_STYLE = 'AUTH/UPDATE_STYLE'
 
-export function submitSurvey(surveyResults, isLoading = true) {
+export function submitSurvey(surveyResults, id, isLoading = true) {
   return dispatch => {
     dispatch({
       type: SURVEY_REQUEST,
       isLoading
     })
+    const obj = {
+      id,
+      style: surveyResults
+    }
     console.log('surveyResults', surveyResults)
     return axios.post(routeApi, mutation({
       operation: 'userUpdate',
-      variables: surveyResults,
+      variables: obj,
       fields: ['id', 'style']
     }))
       .then(response => {
