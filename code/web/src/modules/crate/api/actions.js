@@ -12,7 +12,7 @@ export const CRATES_GET_LIST_FAILURE = 'CRATES/GET_LIST_FAILURE'
 export const CRATES_GET_REQUEST = 'CRATES/GET_REQUEST'
 export const CRATES_GET_RESPONSE = 'CRATES/GET_RESPONSE'
 export const CRATES_GET_FAILURE = 'CRATES/GET_FAILURE'
-
+export const CRATE_ID = 'CRATE_ID'
 // Actions
 
 // Get list of crates
@@ -133,5 +133,12 @@ export function remove(variables) {
       variables,
       fields: ['id']
     }))
+  }
+}
+
+export function saveId(id) {
+  return {
+    type: CRATE_ID,
+    id,
   }
 }
