@@ -21,32 +21,25 @@ export function submitSurvey(surveyResults, id, isLoading = true) {
       id,
       style: surveyResults
     }
-    console.log('surveyResults', surveyResults)
     return axios.post(routeApi, mutation({
       operation: 'userUpdate',
       variables: obj,
       fields: ['id', 'style']
     }))
-      .then(response => {
+    .then(response => {
+      let error = ''
+      if (response.data.errors && response.data.errors.length > 0) {
+        error = response.data.errors[0].message
+        console.log('error', error)
+      } else {
+        const style = response.data.data.userUpdate.style
         console.log('response', response)
-        let error = ''
-        if (response.data.errors && response.data.errors.length > 0) {
-          error = response.data.errors[0].message
-          console.log('error', error)
-        } else {
-          const style = response.data.data.userUpdate.style
-          console.log('style', style)
-          dispatch({
-                type: UPDATE_STYLE,
-                style
-          })
-        }
-      })
-      .catch(error => {
+        console.log('response.data.data.userUpdate', response.data.data.userUpdate)
         dispatch({
-          type: UPDATE_STYLE,
-          error: `catchError ${error}`
+              type: UPDATE_STYLE,
+              style
         })
-      })
+      }
+    })
   }
 }

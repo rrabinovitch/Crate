@@ -20,7 +20,6 @@ import { setUser, setUserLocally } from '../modules/user/api/actions'
 
         setUserLocally(token, user)
 
-        console.log('User logged in.')
       }
     }
   } catch (e) {
