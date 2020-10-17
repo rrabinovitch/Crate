@@ -9,7 +9,6 @@ import models from '../../setup/models'
 
 // Update user
 export async function update(parentValue, { id, style }) {
-
   var commaRemove = style.replace(/,/g, '')
   const array = Array.from(commaRemove)
 
