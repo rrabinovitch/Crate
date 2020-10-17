@@ -65,5 +65,6 @@ describe("user queries", () => {
     expect(response.body.data.user.name).toEqual('The User')
     expect(response.body.data.user.email).toEqual('user@crate.com')
     expect(response.body.data.user.style).toBeUndefined()
+    //  ^ this should be updated to BeNull after default value for style is updated
   });
 });
