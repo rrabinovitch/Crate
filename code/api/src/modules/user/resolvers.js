@@ -11,7 +11,6 @@ import models from '../../setup/models'
 export async function update(parentValue, { id, style }) {
   var commaRemove = style.replace(/,/g, '')
   const array = Array.from(commaRemove)
-
   let map = new Map()
   for (let num of array) {
       map.set(num, (map.get(num) || 0) + 1)
@@ -43,12 +42,14 @@ export async function update(parentValue, { id, style }) {
   }
 
   //updates user with new variable
-  return await models.User.update(
+  const user = await models.User.update(
     {
       style: newStyle
     },
     {where: {id}}
-  )}
+  )
+  return await getById({},{id})
+}
 
 // Create
 export async function create(parentValue, { name, email, password }) {
@@ -72,7 +73,6 @@ export async function create(parentValue, { name, email, password }) {
 
 export async function login(parentValue, { email, password }) {
   const user = await models.User.findOne({ where: { email } })
-
   if (!user) {
     // User does not exists
     throw new Error(`We do not have any user registered with ${ email } email address. Please signup.`)
@@ -90,7 +90,8 @@ export async function login(parentValue, { email, password }) {
         id: userDetails.id,
         name: userDetails.name,
         email: userDetails.email,
-        role: userDetails.role
+        role: userDetails.role,
+        style: userDetails.style
       }
 
       return {
