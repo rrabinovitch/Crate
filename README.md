@@ -21,8 +21,20 @@ Our group was assigned the [Style Survey track](https://mod4.turing.io/projects/
 * Nick Edwin: [GitHub](https://github.com/NickEdwin) | [LinkedIn](https://www.linkedin.com/in/nicholas-edwin/)
 * Ash Abbasi: [GitHub](https://github.com/Ashkanthegreat) | [LinkedIn](https://www.linkedin.com/in/ashkan-abbasi-b571a985/)
 
-## 
+## Analyzing an existing codebase & learning new technologies
+In addition to being the first time our group worked as a full-stack team, this project served as our frontend team's first time using Redux, axios, express, and GraphQL, and our backend team's first time using JavaScript, Node.js, express, Sequelize, and GraphQL. Creating the tools below aided our team in familiarizing ourselves with a legacy codebase that used all these unfamiliar technologies. Additionally, after each of us completed the local setup process, we wrote our reflections in comments [here](https://github.com/rrabinovitch/Crate/issues/3).
 
+### ERD
+<img src="https://user-images.githubusercontent.com/62635544/95711898-f131ed80-0c20-11eb-8cbc-1e93e3c138a3.png" alt="ERD" width="500"/>
+
+### Data flow
+<img src="https://user-images.githubusercontent.com/18726699/95688974-1bf15700-0bcb-11eb-87f3-8b47fe7678bd.png" alt="data flow" width="500"/>
+
+### User flow
+<img src="https://user-images.githubusercontent.com/18726699/95688980-1eec4780-0bcb-11eb-8193-e660e096d9a9.png" alt="user flow" width="500"/>
+
+### Wireframe for style survey feature
+<img src="https://user-images.githubusercontent.com/18726699/95689004-3f1c0680-0bcb-11eb-948c-00f04f6bac9c.png" alt="wireframe" width="500"/>
 
 ## Features
 - Modular and easily scalable code structure
@@ -100,6 +112,12 @@ Click on image to view fullscreen and zoom
 - Production
   - Run API `cd api` and `npm run start:prod`, creates an optimized build in `build` directory and runs the server
   - Run Webapp `cd web` and `npm run start:prod`, creates an optimized build in `build` directory and runs the server
+- Tests
+  - back-end testing
+      - `cd code/api`
+      - `npm test`
+  - front-end testing
+      - _to be filled in_
 
 ## Multi-package automation
 - Optional multi-package automation for faster setup and easier dev environment initiation.
