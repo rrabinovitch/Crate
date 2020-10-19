@@ -13,7 +13,7 @@ Our group was assigned the [Style Survey track](https://mod4.turing.io/projects/
 
 ## Style survey
 
-![Image](![Desktop Layout](https://frontend.turing.io/projects/module-1/assets/ideabox-group/desktop.jpg))
+
 
 ## Contributors
 **Front-end Team:**
