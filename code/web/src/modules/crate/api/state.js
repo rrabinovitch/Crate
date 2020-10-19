@@ -8,6 +8,7 @@ import {
   CRATES_GET_REQUEST,
   CRATES_GET_RESPONSE,
   CRATES_GET_FAILURE,
+  CRATE_ID
 } from './actions'
 
 // Crates list
@@ -16,7 +17,8 @@ import {
 const cratesInitialState = {
   isLoading: false,
   error: null,
-  list: []
+  list: [],
+  id: null
 }
 
 // State
@@ -43,6 +45,11 @@ export const crates = (state = cratesInitialState, action) => {
         isLoading: false,
         error: action.error
       }
+      case CRATE_ID:
+        return {
+          ...state,
+          id: action.id
+        }
 
     default:
       return state

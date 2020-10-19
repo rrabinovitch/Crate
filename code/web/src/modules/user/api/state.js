@@ -1,15 +1,14 @@
 // App Imports
 import { isEmpty } from '../../../setup/helpers'
 import { SET_USER, LOGIN_REQUEST, LOGIN_RESPONSE, LOGOUT } from './actions'
-import { SURVEY_REQUEST, UPDATE_STYLE } from '../../survey/api'
-
+import { UPDATE_STYLE, SURVEY_REQUEST } from '../../survey/api'
 // Initial State
 export const userInitialState = {
   error: null,
   isLoading: false,
   isAuthenticated: false,
   details: null,
-  style: null
+  style:null
 }
 
 // State
@@ -45,12 +44,16 @@ export default (state = userInitialState, action) => {
         details: null
       }
 
-    case UPDATE_STYLE:
+    case UPDATE_STYLE: 
       return {
         ...state,
+        // details: {
+        // ...state.details,
+        // style: action.style
+        // }
         style: action.style
       }
-
+    
     case SURVEY_REQUEST:
       return {
         ...state,

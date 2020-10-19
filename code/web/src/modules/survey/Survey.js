@@ -9,6 +9,9 @@ import Button from '../../ui/button'
 import { topArray, bottomArray, shoesArray, accessoriesArray } from '../../../public/surveyImages/index.js'
 import {submitSurvey} from './api'
 import { connect } from 'react-redux'
+import { create } from '../subscription/api/actions'
+import userRoutes from '../../setup/routes/user'
+
 class Survey extends PureComponent {
   constructor(props){
     super(props);
@@ -50,7 +53,7 @@ class Survey extends PureComponent {
     const newRow = itemArray.map((image, index) => {
         return(
           <GridCell style={{display: 'flex', justifyContent:'space-between'}}>
-            <Card style={{ width: '15em', margin : '2.5em auto', backgroundColor: white, padding:'1em' }} key={index + 1}>
+            <Card style={{ width: '15em', backgroundColor: white, }} key={index + 1}>
               <img src={`${APP_URL}${image}`}  style={{ width: '100%' }} data-value={index+1} className={rowClass}/>
             </Card>
           </GridCell>
@@ -69,18 +72,11 @@ class Survey extends PureComponent {
   }
 
   handleSubmit = (event) => {
-    console.log('I was clicked')
     const results = [this.state.tops, this.state.bottoms, this.state.shoes, this.state.accessories].join(', ')
     const id = this.props.user.details.id
-    console.log('results', results)
-    console.log('type', typeof results)
     this.props.submitSurvey(results, id)
-    // .catch(error => {
-    //   dispatch({
-    //     type: UPDATE_STYLE,
-    //     error: 'Please try again'
-    //   })
-    // })
+    .then(() => {this.props.create(id)})
+    .then(this.props.history.push(userRoutes.subscription.path))
   }
 
   render() {
@@ -135,8 +131,9 @@ class Survey extends PureComponent {
 
 function getUserState(state) {
   return {
-    user: state.user
+    user: state.user,
+    crateId: state.crates.id
   }
 }
 
-export default connect(getUserState, { submitSurvey })(Survey)
+export default connect(getUserState, { submitSurvey, create })(Survey)
