@@ -34,7 +34,7 @@ export function submitSurvey(surveyResults, id, isLoading = true) {
           error = response.data.errors[0].message
           console.log('error', error)
         } else {
-          const style = response.data.data.userUpdate.style
+          const style = response.data.data.userUpdate
           console.log('style', style)
           dispatch({
                 type: UPDATE_STYLE,
