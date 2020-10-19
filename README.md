@@ -9,8 +9,6 @@ This project serves as our first group project of Mod 4 at Turing School of Soft
 
 Our group was assigned the [Style Survey track](https://mod4.turing.io/projects/crate/crate_project_tracks.html). This involved adding a feature for users to indicate style preferences via a survey when they subscribe to a crate for the first time.
 
-### _screenshots of feature implementation to be added here_
-
 ## Style survey
 
 ![image](https://user-images.githubusercontent.com/50157153/96474619-3b523a80-11f0-11eb-9b7a-ac228f41fc77.png)
