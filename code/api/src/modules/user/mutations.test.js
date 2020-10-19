@@ -41,7 +41,7 @@ describe("user mutations", () => {
   it("updates user's style preference", async() => {
     const response = await request(server)
     .post('/')
-    .send({ mutation: '{ userUpdate(id: 2, style: "cute") { id name email } }'})
+    .send({ mutation: '{ userUpdate(id: 2) { style: "cute" } }'})
     .expect(200)
   })
 })
