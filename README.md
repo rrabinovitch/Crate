@@ -13,7 +13,8 @@ Our group was assigned the [Style Survey track](https://mod4.turing.io/projects/
 
 ## Style survey
 
-
+![image](https://user-images.githubusercontent.com/50157153/96474619-3b523a80-11f0-11eb-9b7a-ac228f41fc77.png)
+![image](https://user-images.githubusercontent.com/50157153/96474685-4c9b4700-11f0-11eb-9ffe-a6834e7b8ab3.png)
 
 ## Contributors
 **Front-end Team:**
