@@ -11,6 +11,10 @@ Our group was assigned the [Style Survey track](https://mod4.turing.io/projects/
 
 ### _screenshots of feature implementation to be added here_
 
+## Style survey
+
+![Image](![Desktop Layout](https://frontend.turing.io/projects/module-1/assets/ideabox-group/desktop.jpg))
+
 ## Contributors
 **Front-end Team:**
 * Taryn Martin: [GitHub](https://github.com/tarynmartin) | [LinkedIn](https://www.linkedin.com/in/tarynmartin919/)
